@@ -16,7 +16,7 @@ def start_server(host, port, threads, db_config):
         'session.data_dir': '.beaker/',
         'session.lock_dir': '.beaker/',
         'session.secret': "SHHH IT'S A SECRET!",  # Note: this should actually be a very long secret string (hash).
-        'session.key': 'puget sound programming python',
+        'session.key': 'puget_sound_programming_python',
         'session.auto': True
     }
     app_with_sessions = SessionMiddleware(app, session_config)
