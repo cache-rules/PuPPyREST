@@ -11,12 +11,13 @@
 <div class="puppy">
     <div class="content">
         <h3>Welcome, ${user['username']}</h3>
-        <div>
-            <label for="post">Make Post:</label>
-            <input type="text" name="post" id="post" />
-            <button id="submit">post</button>
+        <div class="post-form">
+            <form>
+                <input type="text" name="post" id="post" />
+                <button id="submit">post</button>
+            </form>
         </div>
-        <ul id="posts"></ul>
+        <ul id="posts" class="post-list"></ul>
     </div>
 </div>
 <script type="text/javascript" src="/assets/js/vendor/jquery-1.11.0.min.js"></script>
@@ -71,6 +72,9 @@
         if (post.length > 0) {
             puppy.postJSON('api/posts', {post: post});
         }
+
+        $('#post').val('');
+        return false;
     });
 
     postLoop();
