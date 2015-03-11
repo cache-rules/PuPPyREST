@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>PuPPy Microblog</title>
+    <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/css/normalize.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+<div class="puppy">
+    <div class="content">
+        <h3>Welcome, ${user['username']}</h3>
+        <div>
+            <label for="post">Make Post:</label>
+            <input type="text" name="post" id="post" />
+            <button id="submit">post</button>
+        </div>
+        <ul id="posts"></ul>
+    </div>
+</div>
+<script type="text/javascript" src="/assets/js/vendor/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="/assets/js/puppy.js"></script>
+<script type="text/javascript">
+    var createPostNode, postLoop, success, failure, submitButton = $('#submit'), makePost;
+
+    createPostNode = function (post) {
+        var li = document.createElement('li'), favWrapper = document.createElement('span'),
+                favCount = document.createElement('span'), star = document.createElement('span'), clickHandler;
+
+
+        clickHandler = function () {
+            puppy.postJSON('/api/posts/' + post.id + '/favorites')
+        };
+
+        li.textContent = post.username + ': ' + post.content;
+
+        star.className = 'fa fa-star';
+        favWrapper.onclick = clickHandler;
+        favCount.textContent = '(' + post.fav_count + ')';
+        favWrapper.className = 'fav-wrapper';
+
+        favWrapper.appendChild(star);
+        favWrapper.appendChild(favCount);
+        li.appendChild(favWrapper);
+
+        return li;
+    };
+
+    success = function (data) {
+        var posts = $('#posts');
+
+        posts.html('');
+
+        data.posts.forEach(function (post) {
+            posts.append(createPostNode(post))
+        });
+    };
+
+    failure = function () {
+        console.error('error retrieving posts.');
+    };
+
+    postLoop = function () {
+        puppy.getJSON('/api/posts').then(success, failure);
+    };
+
+    submitButton.on('click', function () {
+        var post = $('#post').val().trim();
+
+        if (post.length > 0) {
+            puppy.postJSON('api/posts', {post: post});
+        }
+    });
+
+    postLoop();
+    window.setInterval(postLoop, 2500);
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Add User</title>
+    <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/css/normalize.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+<div class="puppy-login">
+    <div class="install">
+        <form method="post">
+            <div class="form-row">
+                <span class="form-error error"></span>
+            </div>
+
+            <div class="form-row">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username">
+            </div>
+
+            <div class="form-row">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password">
+            </div>
+
+            <div class="form-row">
+                <label for="password-confirm">Confirm Password</label>
+                <input type="password" id="password-confirm" name="password_confirm">
+            </div>
+
+            <div class="submit-button">
+                <button id="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script type="text/javascript" src="/assets/js/vendor/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+    $('#submit').on('click', function () {
+        var username = $('#username').val().trim(), password = $('#password').val().trim(),
+            confirm = $('#password-confirm').val().trim(), firstName = $('#first-name').val().trim(),
+            lastName = $('#last-name').val().trim(), error = $('.form-error');
+
+        error.text('');
+
+        if (username == '' || password == '' || confirm == '' || firstName == '' || lastName == '') {
+            error.text('All fields are required');
+            return false;
+        }
+
+        if (password !== confirm) {
+            error.text('Passwords did not match');
+            return false;
+        }
+
+        if (password.length < 8) {
+            error.text('Passwords must be at least 8 characters long');
+            return false;
+        }
+
+        return true;
+    });
+</script>
+</body>
+</html>
