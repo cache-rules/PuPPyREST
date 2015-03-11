@@ -1,51 +1,3 @@
-@font-face {
-    font-family: 'latolight';
-    src: url('/assets/fonts/lato-black-webfont.eot');
-    src: url('/assets/fonts/lato-black-webfont.eot?#iefix') format('embedded-opentype'),
-    url('/assets/fonts/lato-black-webfont.woff') format('woff'),
-    url('/assets/fonts/lato-black-webfont.ttf') format('truetype'),
-    url('/assets/fonts/lato-black-webfont.svg#latoblack') format('svg');
-    font-weight: 900;
-    font-style: normal;
-}
-
-
-@font-face {
-    font-family: 'latolight';
-    src: url('/assets/fonts/lato-bold-webfont.eot');
-    src: url('/assets/fonts/lato-bold-webfont.eot?#iefix') format('embedded-opentype'),
-    url('/assets/fonts/lato-bold-webfont.woff') format('woff'),
-    url('/assets/fonts/lato-bold-webfont.ttf') format('truetype'),
-    url('/assets/fonts/lato-bold-webfont.svg#latobold') format('svg');
-    font-weight: 800;
-    font-style: normal;
-}
-
-
-@font-face {
-    font-family: 'latolight';
-    src: url('/assets/fonts/lato-light-webfont.eot');
-    src: url('/assets/fonts/lato-light-webfont.eot?#iefix') format('embedded-opentype'),
-    url('/assets/fonts/lato-light-webfont.woff') format('woff'),
-    url('/assets/fonts/lato-light-webfont.ttf') format('truetype'),
-    url('/assets/fonts/lato-light-webfont.svg#latolight') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-
-
-@font-face {
-    font-family: 'latoregular';
-    src: url('/assets/fonts/lato-regular-webfont.eot');
-    src: url('/assets/fonts/lato-regular-webfont.eot?#iefix') format('embedded-opentype'),
-    url('/assets/fonts/lato-regular-webfont.woff') format('woff'),
-    url('/assets/fonts/lato-regular-webfont.ttf') format('truetype'),
-    url('/assets/fonts/lato-regular-webfont.svg#latoregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
 *,
 *:after,
 *::before {
@@ -64,7 +16,7 @@ body,
 }
 
 body, h1, h2, h3, h4, h5, h6, p, button, input {
-    font-family: latolight, sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 a, a:visited {
@@ -276,7 +228,7 @@ a, a:visited {
 }
 
 .post-form input {
-    width: 448px;
+    width: 446px;
 }
 
 .post-form button {
